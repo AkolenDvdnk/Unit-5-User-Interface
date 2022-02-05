@@ -3,9 +3,16 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
-    public GameObject gameOverUI;
+    public static UIManager instance;
 
+    public TextMeshProUGUI scoreText;
+    public GameObject titleScreen;
+    public GameObject gameOverScreen;
+
+    private void Start()
+    {
+        instance = this;
+    }
     private void Update()
     {
         UpdateScoreUI();
@@ -18,6 +25,10 @@ public class UIManager : MonoBehaviour
     private void GameOver()
     {
         if (GameManager.GameOver)
-            gameOverUI.SetActive(true);
+            gameOverScreen.SetActive(true);
+    }
+    public void DeactivateTitleScreen()
+    {
+        titleScreen.SetActive(false);
     }
 }

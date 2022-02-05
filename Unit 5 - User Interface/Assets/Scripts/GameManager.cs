@@ -11,12 +11,6 @@ public class GameManager : MonoBehaviour
 
     private float spawnRate = 1f;
 
-    private void Start()
-    {
-        Score = 0;
-
-        StartCoroutine(SpawnTarget());
-    }
     private IEnumerator SpawnTarget()
     {
         while (!GameOver)
@@ -29,5 +23,14 @@ public class GameManager : MonoBehaviour
     public int UpdateScoreValue(int value)
     {
         return Score += value;
+    }
+    public void StartGame(int difficulty)
+    {
+        Score = 0;
+        spawnRate /= difficulty;
+
+        UIManager.instance.DeactivateTitleScreen();
+
+        StartCoroutine(SpawnTarget());
     }
 }
