@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator SpawnTarget()
     {
-        while (true)
+        while (!GameOver)
         {
             yield return new WaitForSeconds(spawnRate);
             int index = Random.Range(0, targets.Count);

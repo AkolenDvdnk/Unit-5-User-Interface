@@ -4,7 +4,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI gameOverText;
+    public GameObject gameOverUI;
 
     private void Update()
     {
@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour
     private void GameOver()
     {
         if (GameManager.GameOver)
-            gameOverText.gameObject.SetActive(true);
-
+            gameOverUI.SetActive(true);
     }
 }

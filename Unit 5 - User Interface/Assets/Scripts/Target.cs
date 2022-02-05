@@ -40,16 +40,19 @@ public class Target : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        gameManager.UpdateScoreValue(valueToAdd);
+        if (!GameManager.GameOver)
+        {
+            gameManager.UpdateScoreValue(valueToAdd);
 
-        GameObject effect = (GameObject)Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            GameObject effect = (GameObject)Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
 
-        Destroy(effect, 2f);
-        Destroy(gameObject);
+            Destroy(effect, 2f);
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Bad"))
+        if (!gameObject.CompareTag("Bad"))
         {
             GameManager.GameOver = true;
         }
