@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static int Score;
+    public static bool GameOver = false;
 
     public List<GameObject> targets;
 
