@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static int Score;
+    public static int Lives;
     public static bool GameOver = false;
 
     public List<GameObject> targets;
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
     public void StartGame(int difficulty)
     {
         Score = 0;
+        Lives = 3;
         spawnRate /= difficulty;
 
         UIManager.instance.DeactivateTitleScreen();

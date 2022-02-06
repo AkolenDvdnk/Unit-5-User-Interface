@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI livesText;
     public GameObject titleScreen;
     public GameObject gameOverScreen;
 
@@ -15,12 +16,13 @@ public class UIManager : MonoBehaviour
     }
     private void Update()
     {
-        UpdateScoreUI();
+        UpdateUI();
         GameOver();
     }
-    private void UpdateScoreUI()
+    private void UpdateUI()
     {
         scoreText.text = "Score: " + GameManager.Score;
+        livesText.text = "Lives: " + Mathf.Clamp(GameManager.Lives, 0, 3);
     }
     private void GameOver()
     {

@@ -54,6 +54,10 @@ public class Target : MonoBehaviour
     {
         if (!gameObject.CompareTag("Bad"))
         {
+            GameManager.Lives--;
+        }
+        if (GameManager.Lives <= 0)
+        {
             GameManager.GameOver = true;
         }
 
