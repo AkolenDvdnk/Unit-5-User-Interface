@@ -38,7 +38,7 @@ public class Target : MonoBehaviour
     {
         return Random.Range(-maxTorque, maxTorque);
     }
-    private void OnMouseDown()
+    public void DestroyTarget()
     {
         if (!GameManager.GameOver)
         {

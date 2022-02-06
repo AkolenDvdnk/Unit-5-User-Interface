@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI livesText;
     public GameObject titleScreen;
     public GameObject gameOverScreen;
+    public GameObject pauseScreen;
+
+    private bool isPaused = false;
 
     private void Start()
     {
@@ -18,6 +21,7 @@ public class UIManager : MonoBehaviour
     {
         UpdateUI();
         GameOver();
+        PauseToggle();
     }
     private void UpdateUI()
     {
@@ -32,5 +36,18 @@ public class UIManager : MonoBehaviour
     public void DeactivateTitleScreen()
     {
         titleScreen.SetActive(false);
+    }
+    private void PauseToggle()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            isPaused = !isPaused;
+            pauseScreen.SetActive(isPaused);
+
+            if (!isPaused)
+                Time.timeScale = 1f;
+            else
+                Time.timeScale = 0f;
+        }
     }
 }
